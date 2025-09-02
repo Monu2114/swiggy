@@ -1,51 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-/** 
- * Header
-     - Logo
-     - Nav Items 
-        - Home
-        - About
-        - Cart
-*  Body
-   - Search
-   - Restaurant Container
-       - RestaurantCard
-   
-   Footer
-     - copyright
-     - terms and policy
-     - social media links
- */
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div>
-        <img
-          className="logo"
-          src="https://i.pinimg.com/736x/08/3b/2f/083b2fe2646cd064e3a294bb716810f9.jpg"
-        />
-      </div>
-      <div className="nav-items">
-        <ul className="list">
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const style = {
-  backgroundColor: "#f0f0f0",
-};
-
 const resData = [
   {
     card: {
@@ -1050,43 +1002,5 @@ const resData = [
     },
   },
 ];
-const RestaurantCard = ({ resData }) => {
-  const { name, cuisines, avgRating, cloudinaryImageId } =
-    resData?.card.card.info;
-  return (
-    <div className="res-card" style={style}>
-      <img
-        className="res-logo"
-        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
-        alt={name}
-      />
 
-      <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
-      <h4>{avgRating}</h4>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="restaurant-container">
-        {resData.map((restaurant) => {
-          return <RestaurantCard resData={restaurant} key={restaurant.card.card.info.id} />;
-        })}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <>
-      <Header />
-      <Body />
-    </>
-  );
-};
-root.render(<AppLayout />);
+export default resData;
