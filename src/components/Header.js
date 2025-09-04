@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utils/constants";
 const Header = () => {
+  console.log("Header rendered");
   return (
     <div className="header">
       <div>
