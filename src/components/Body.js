@@ -36,42 +36,44 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="search">
-        <input
-          className="search-input"
-          value={searchText}
-          onChange={(e) => {
-            const value = e.target.value;
-            setSearchText(value);
+      <div className="filters">
+        <div className="search">
+          <input
+            className="search-input"
+            value={searchText}
+            onChange={(e) => {
+              const value = e.target.value;
+              setSearchText(value);
 
-            // always filter from the original list
-          }}
-        />
-        <button
-          onClick={() => {
-            setFilteredRestaurant(
-              allRestaurants.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              )
-            );
-          }}
-        >
-          Search
-        </button>
-      </div>
+              // always filter from the original list
+            }}
+          />
+          <button
+            onClick={() => {
+              setFilteredRestaurant(
+                allRestaurants.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                )
+              );
+            }}
+          >
+            Search
+          </button>
+        </div>
 
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            setFilteredRestaurant(
-              allRestaurants.filter((res) => res?.info?.avgRating > 4.2)
-            );
-            console.log("am re-rendered");
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div className="filter">
+          <button
+            className="filter-btn"
+            onClick={() => {
+              setFilteredRestaurant(
+                allRestaurants.filter((res) => res?.info?.avgRating > 4.2)
+              );
+              console.log("am re-rendered");
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
 
       <div className="restaurant-container">

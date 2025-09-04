@@ -30,6 +30,7 @@
   width: 200px;
   padding: 0px 10px;
   margin: 5px;
+  background-color: wheat;
 }
 
 .res-card:hover {
@@ -45,13 +46,13 @@
 }
 
 .filter-btn {
-  margin: 5px;
+  margin: 20px;
   cursor: pointer;
 }
 
 .shimmer-card {
   height: 400px;
-  width: 100px;
+  width: 200px;
   padding: 4px;
   margin: 20px;
   background-color: #f0f0f0;
@@ -59,10 +60,14 @@
 
 .shimmer-container {
   display: flex;
-  flex: wrap;
+  flex-wrap: wrap;
   gap: 10px;
 }
 .login {
   padding: 0 20px;
   cursor: pointer;
+}
+
+.filters {
+  display: flex;
 }
