@@ -79,3 +79,9 @@
   font-size: larger;
   font-weight: 500;
 }
+
+.user-card {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
