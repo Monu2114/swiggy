@@ -1,14 +1,20 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const resInfo = useRestaurantMenu(resId);
+  const status = useOnlineStatus();
 
   if (resInfo === null) {
     return <Shimmer />;
+  }
+
+  if (status === false) {
+    return <h1>Offline</h1>;
   }
   const { name, cuisines, costForTwoMessage } =
     resInfo?.data?.cards?.[2]?.card?.card?.info;
