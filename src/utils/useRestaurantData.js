@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { RESTAURANT_API } from "../utils/constants";
 const useRestaurantData = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [error, setError] = useState(null);
@@ -7,12 +7,13 @@ const useRestaurantData = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          "https://www.swiggy.com/dapi/restaurants/list/..."
-        );
+        const res = await fetch(RESTAURANT_API);
         if (!res.ok) throw new Error("Network response was not ok");
-        const data = await res.json();
-        setAllRestaurants(data?.restaurants || []);
+        const json_data = await res.json();
+        setAllRestaurants(
+          json_data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+            ?.restaurants
+        );
       } catch (err) {
         console.log("Failed to fetch restaurants:", err);
         setError("Failed to fetch restaurants. Please try again later.");
