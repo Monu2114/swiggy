@@ -15,6 +15,7 @@ export default class UserClass extends React.Component {
 
   async componentDidMount() {
     const token = process.env.REACT_APP_TOKEN;
+    console.log("Env token:", token);
 
     const data = await fetch("https://api.github.com/users/Monu2114", {
       headers: {

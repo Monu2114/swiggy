@@ -1,41 +1,45 @@
 import RestaurantCard from "./RestaurantCard";
+import useRestaurantData from "../utils/useRestaurantData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
-  console.log("Body rendered");
-
-  const [allRestaurants, setAllRestaurants] = useState([]); // original full list
+  console.log("🔄 Body rendered");
+  const { allRestaurants, error } = useRestaurantData();
+  // original full list
   const [filteredRestaurant, setFilteredRestaurant] = useState([]); // filtered list
   const [searchText, setSearchText] = useState("");
 
+  // Runs whenever allRestaurants changes
   useEffect(() => {
-    console.log("use effect after component loaded");
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_"
+    console.log(
+      "📥 useEffect triggered because allRestaurants changed. Length:",
+      allRestaurants.length
     );
+    setFilteredRestaurant(allRestaurants);
+  }, [allRestaurants]);
 
-    const json_data = await data.json();
+  const status = useOnlineStatus();
 
-    setAllRestaurants(
-      json_data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    setFilteredRestaurant(
-      json_data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
-    return json_data;
-  };
+  if (status === false) {
+    return <h1>Offline</h1>;
+  }
+  if (error) return <h1>{error}</h1>;
 
-  return allRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  if (allRestaurants.length === 0) {
+    console.log("⏳ allRestaurants is empty → showing Shimmer");
+    return <Shimmer />;
+  }
+
+  console.log(
+    "✅ Ready to render UI with",
+    filteredRestaurant.length,
+    "restaurants"
+  );
+
+  return (
     <div className="body">
       <div className="filters">
         <div className="search">
@@ -44,18 +48,18 @@ const Body = () => {
             value={searchText}
             onChange={(e) => {
               const value = e.target.value;
+              console.log("⌨️ Typing in search box:", value);
               setSearchText(value);
-
-              // always filter from the original list
             }}
           />
           <button
             onClick={() => {
-              setFilteredRestaurant(
-                allRestaurants.filter((res) =>
-                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                )
+              console.log("🔍 Search button clicked with text:", searchText);
+              const results = allRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
+              console.log("🔍 Search results length:", results.length);
+              setFilteredRestaurant(results);
             }}
           >
             Search
@@ -66,10 +70,12 @@ const Body = () => {
           <button
             className="filter-btn"
             onClick={() => {
-              setFilteredRestaurant(
-                allRestaurants.filter((res) => res?.info?.avgRating > 4.2)
+              console.log("⭐ Top Rated filter clicked");
+              const results = allRestaurants.filter(
+                (res) => res?.info?.avgRating > 4.2
               );
-              console.log("am re-rendered");
+              console.log("⭐ Top Rated results length:", results.length);
+              setFilteredRestaurant(results);
             }}
           >
             Top Rated Restaurants
@@ -80,7 +86,7 @@ const Body = () => {
       <div className="restaurant-container">
         {filteredRestaurant.map((res) => (
           <Link to={`/restaurant/${res?.info?.id}`} key={res?.info?.id}>
-            <RestaurantCard resData={res} key={res?.info?.id} />
+            <RestaurantCard resData={res} />
           </Link>
         ))}
       </div>
