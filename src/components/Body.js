@@ -26,7 +26,7 @@ const Body = () => {
   if (status === false) {
     return <h1>Offline</h1>;
   }
-  if (error) return <h1>{error}</h1>;
+  if (error) return <h1 className="text-3xl">{error}</h1>;
 
   if (allRestaurants.length === 0) {
     console.log("⏳ allRestaurants is empty → showing Shimmer");
@@ -83,7 +83,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="restaurant-container">
+      <div className="grid grid-cols-4">
         {filteredRestaurant.map((res) => (
           <Link to={`/restaurant/${res?.info?.id}`} key={res?.info?.id}>
             <RestaurantCard resData={res} />

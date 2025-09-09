@@ -12,7 +12,7 @@ const useRestaurantData = () => {
         const json_data = await res.json();
         setAllRestaurants(
           json_data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
+            ?.restaurants || []
         );
       } catch (err) {
         console.log("Failed to fetch restaurants:", err);

@@ -8,15 +8,13 @@ const Header = () => {
   console.log("Header rendered");
   const status = useOnlineStatus();
   return (
-    <div className="header">
+    <div className="bg-gradient-to-r from-purple-100 to-red-100  flex flex-col md:flex-row justify-evenly gap-12 md:gap-20 items-center">
       <div>
-        <img className="logo" src={LOGO_URL} />
+        <img className="w-24" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul className="list">
-          <li className="status">
-            Online status : {status == true ? "✅" : "❌"}
-          </li>
+      <div>
+        <ul className="flex flex-col md:flex-row gap-4 md:gap-12 ">
+          <li className="">Online status : {status == true ? "✅" : "❌"}</li>
           <Link to="/" className="link">
             <li>Home</li>
           </Link>
