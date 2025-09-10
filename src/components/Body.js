@@ -16,7 +16,7 @@ const Body = () => {
   useEffect(() => {
     console.log(
       "📥 useEffect triggered because allRestaurants changed. Length:",
-      allRestaurants.length
+      allRestaurants
     );
     setFilteredRestaurant(allRestaurants);
   }, [allRestaurants]);
@@ -86,7 +86,10 @@ const Body = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-4">
         {filteredRestaurant.map((res) => (
-          <Link to={`/restaurant/${res?.info?.id}`} key={res?.info?.id}>
+          <Link
+            to={`/restaurant/${res?.card?.card?.info?.id}`}
+            key={res?.card?.card?.info?.id}
+          >
             <RestaurantCard resData={res} />
           </Link>
         ))}

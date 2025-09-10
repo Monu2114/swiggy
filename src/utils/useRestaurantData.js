@@ -11,8 +11,8 @@ const useRestaurantData = () => {
         if (!res.ok) throw new Error("Network response was not ok");
         const json_data = await res.json();
         setAllRestaurants(
-          json_data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants || []
+          json_data?.data?.cards?.[0]?.groupedCard?.cardGroupMap?.RESTAURANT
+            ?.cards || []
         );
       } catch (err) {
         console.log("Failed to fetch restaurants:", err);
