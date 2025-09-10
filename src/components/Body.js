@@ -40,11 +40,11 @@ const Body = () => {
   );
 
   return (
-    <div className="body">
-      <div className="filters">
-        <div className="search">
+    <div className="flex flex-col gap-12 p-8">
+      <div className="flex mt-14 gap-12 justify-center">
+        <div className="flex gap-2">
           <input
-            className="search-input"
+            className="border-2 w-84 border-gray-500 rounded-xl"
             value={searchText}
             onChange={(e) => {
               const value = e.target.value;
@@ -53,6 +53,7 @@ const Body = () => {
             }}
           />
           <button
+            className="bg-orange-200 rounded-xl p-2 w-20"
             onClick={() => {
               console.log("🔍 Search button clicked with text:", searchText);
               const results = allRestaurants.filter((res) =>
@@ -66,9 +67,9 @@ const Body = () => {
           </button>
         </div>
 
-        <div className="filter">
+        <div>
           <button
-            className="filter-btn"
+            className="bg-gray-200 p-2"
             onClick={() => {
               console.log("⭐ Top Rated filter clicked");
               const results = allRestaurants.filter(
@@ -83,7 +84,7 @@ const Body = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1 gap-4">
         {filteredRestaurant.map((res) => (
           <Link to={`/restaurant/${res?.info?.id}`} key={res?.info?.id}>
             <RestaurantCard resData={res} />
