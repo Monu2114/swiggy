@@ -1,5 +1,4 @@
 import React from "react";
-import User from "./User";
 import UserClass from "./UserClass";
 export default class About extends React.Component {
   componentDidMount() {
