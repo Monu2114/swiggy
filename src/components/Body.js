@@ -1,9 +1,11 @@
 import withPromotedLabel, { RestaurantCard } from "./RestaurantCard";
 import useRestaurantData from "../utils/useRestaurantData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { userInfo } from "../utils/UserContext";
+
 const Body = () => {
   console.log("🔄 Body rendered");
   const { allRestaurants, error } = useRestaurantData();
@@ -12,6 +14,7 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const RestauarantPromoted = withPromotedLabel(RestaurantCard);
+  const { setUser } = useContext(userInfo);
 
   // Runs whenever allRestaurants changes
   useEffect(() => {
@@ -84,6 +87,12 @@ const Body = () => {
           >
             Top Rated Restaurants
           </button>
+          <input
+            type="text"
+            className="w-32 h-12 border-2 p-2 rounded-xl"
+            value={userInfo.loggedInUser}
+            onChange={(e) => setUser(e.target.value)}
+          />
         </div>
       </div>
 

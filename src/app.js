@@ -8,20 +8,33 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/Restaurant-Menu";
 import Shimmer from "./components/Shimmer";
+import { userInfo } from "./utils/UserContext";
+import { useState, useEffect } from "react";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // chunking
 // lazy loading
 
 const Grocery = lazy(() => import("./components/Grocery"));
+
 const AppLayout = () => {
+  const [user, setUser] = useState("Bara");
+  //authentication
+
+  useEffect(() => {
+    const data = {
+      name: "Monu",
+    };
+    setUser(data.name);
+  }, []);
   return (
-    <>
+    <userInfo.Provider value={{ loggedInUser: user, setUser }}>
       <Header />
       {/*  if "/" then body should be called and if about , about should be called */}
 
       <Outlet />
-    </>
+    </userInfo.Provider>
   );
 };
 

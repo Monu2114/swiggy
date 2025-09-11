@@ -1,11 +1,14 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { Theme, userInfo } from "../utils/UserContext";
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
   console.log("Header rendered");
+  const { loggedInUser } = useContext(userInfo);
+  console.log(userInfo);
   const status = useOnlineStatus();
   return (
     <div className="bg-gradient-to-r from-purple-100 to-red-100  flex flex-col md:flex-row justify-evenly gap-12 md:gap-20 items-center">
@@ -15,6 +18,7 @@ const Header = () => {
       <div>
         <ul className="flex flex-col md:flex-row gap-4 md:gap-12 ">
           <li className="">Online status : {status == true ? "✅" : "❌"}</li>
+          <li>{useContext(Theme)}</li>
           <Link to="/" className="link">
             <li>Home</li>
           </Link>
@@ -28,6 +32,7 @@ const Header = () => {
             <li>Grocery</li>
           </Link>
           <li>Cart</li>
+          <li>{loggedInUser}</li>
           <button
             className="login"
             onClick={() => {
