@@ -12,19 +12,20 @@ const Category = ({ categoryCard }) => {
     setDropdown(!dropdown);
   };
   return (
-    <div className="flex flex-col gap-12">
-      <div className="flex justify-between">
+    <div className="flex flex-col gap-8">
+      <hr className="bg-gray-200 w-full h-[12px] border-0" />
+
+      <div className="flex justify-between rounded-xl border-2 border-gray-200 p-4 w-5xl">
         <h3 className="font-bold text-xl tracking-tighter">
           {title} ({itemCards.length})
         </h3>
         <button onClick={handleShow}>{dropdown ? "▲" : "▽"}</button>
       </div>
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 items-center">
         {items.map((item) => {
           return <DisplayItem item={item} key={item?.card?.info?.id} />;
         })}
       </div>
-      <hr className="bg-gray-200 w-2/3 h-[10px] border-0" />
     </div>
   );
 };

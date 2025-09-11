@@ -15,7 +15,7 @@ const DisplayItem = ({ item }) => {
   const final_price = defaultPrice || price;
 
   return (
-    <div className="flex justify-between max-w-5xl">
+    <div className="flex justify-between max-w-4xl">
       <div className="flex flex-col gap-2">
         {itemAttribute.vegClassifier === "NONVEG" ? (
           <NonVegIcon className="w-4 h-4" />
@@ -28,7 +28,7 @@ const DisplayItem = ({ item }) => {
         <p className="text-sm text-gray-600">
           {ratings.aggregatedRating?.rating}
         </p>
-        <p className="text-sm">{description}</p>
+        <p className="text-sm w-3/4">{description}</p>
 
         <hr className="bg-gray-200 w-2/3 h-[1px] border-0 mt-8" />
       </div>
