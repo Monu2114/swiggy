@@ -15,7 +15,7 @@ const DisplayItem = ({ item }) => {
   const final_price = defaultPrice || price;
 
   return (
-    <div className="flex justify-between max-w-4xl relative">
+    <div className="flex justify-between w-full relative">
       <div className="flex flex-col gap-2">
         {itemAttribute.vegClassifier === "NONVEG" ? (
           <NonVegIcon className="w-4 h-4" />

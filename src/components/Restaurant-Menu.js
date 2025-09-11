@@ -1,4 +1,5 @@
 import Shimmer from "./Shimmer";
+import { useState } from "react";
 import { useParams } from "react-router";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -6,19 +7,19 @@ import Category from "./Category";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
+  const status = useOnlineStatus();
+  const [showIndex, setShowIndex] = useState(null);
 
   const resInfo = useRestaurantMenu(resId);
-  const status = useOnlineStatus();
-
   if (resInfo === null) {
     return <Shimmer />;
   }
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.data?.cards?.[2]?.card?.card?.info;
 
   if (status === false) {
     return <h1>Offline</h1>;
   }
-  const { name, cuisines, costForTwoMessage } =
-    resInfo?.data?.cards?.[2]?.card?.card?.info;
 
   const categories =
     resInfo?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
@@ -26,12 +27,10 @@ const RestaurantMenu = () => {
         card?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(categories);
 
-  const { itemCards } =
-    resInfo?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
-      ?.card?.card;
-  console.log(itemCards);
+  const handleClick = (index) => {
+    setShowIndex(showIndex === index ? null : index);
+  };
 
   return (
     <div className="flex flex-col items-center gap-8 my-12">
@@ -42,15 +41,17 @@ const RestaurantMenu = () => {
       </p>
 
       {/* category accordians */}
-      <div className="flex flex-col gap-4">
-        {categories.map((category) => {
-          return (
-            <Category
-              categoryCard={category}
-              key={category?.card?.card?.categoryId}
-            />
-          );
-        })}
+      <div className="flex flex-col gap-4 items-center ">
+        {categories.map((category, index) => (
+          // controlled component
+
+          <Category
+            onClick={() => handleClick(index)}
+            categoryCard={category}
+            key={category?.card?.card?.categoryId}
+            showItems={index === showIndex}
+          />
+        ))}
       </div>
     </div>
   );
