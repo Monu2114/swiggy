@@ -15,7 +15,7 @@ const DisplayItem = ({ item }) => {
   const final_price = defaultPrice || price;
 
   return (
-    <div className="flex justify-between max-w-4xl">
+    <div className="flex justify-between max-w-4xl relative">
       <div className="flex flex-col gap-2">
         {itemAttribute.vegClassifier === "NONVEG" ? (
           <NonVegIcon className="w-4 h-4" />
@@ -24,7 +24,7 @@ const DisplayItem = ({ item }) => {
         )}
 
         <p className="text-lg text-gray-700 font-bold">{name}</p>
-        <p>Rs.{final_price / 100 || ""}</p>
+        <p>₹{final_price / 100 || ""}</p>
         <p className="text-sm text-gray-600">
           {ratings.aggregatedRating?.rating}
         </p>
@@ -32,11 +32,15 @@ const DisplayItem = ({ item }) => {
 
         <hr className="bg-gray-200 w-2/3 h-[1px] border-0 mt-8" />
       </div>
+
       <img
         src={`${CDN_URL}${imageId}`}
         className="w-44 h-44 rounded-xl"
         alt={name}
       />
+      <button className="w-26 h-12 absolute bottom-2 right-8 bg-white text-green-500 rounded-xl p-2">
+        ADD
+      </button>
     </div>
   );
 };

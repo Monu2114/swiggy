@@ -13,7 +13,7 @@ const Category = ({ categoryCard }) => {
   };
   return (
     <div className="flex flex-col gap-8">
-      <hr className="bg-gray-200 w-full h-[12px] border-0" />
+      <hr className="bg-gray-200  h-[12px] border-0" />
 
       <div className="flex justify-between rounded-xl border-2 border-gray-200 p-4 w-5xl">
         <h3 className="font-bold text-xl tracking-tighter">

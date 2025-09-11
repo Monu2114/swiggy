@@ -34,7 +34,7 @@ const RestaurantMenu = () => {
   console.log(itemCards);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-8 my-12">
+    <div className="flex flex-col items-center gap-8 my-12">
       <h1 className="font-bold text-2xl">{name}</h1>
       <p className="text-lg font-medium">
         {cuisines?.join(", ")} - {costForTwoMessage}
