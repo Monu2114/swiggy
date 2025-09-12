@@ -11,10 +11,13 @@ const Category = ({ categoryCard, showItems, onClick }) => {
   //     setDropdown(!dropdown);
   //   };
   return (
-    <div className="flex flex-col gap-8 max-w-5xl" onClick={onClick}>
+    <div className="flex flex-col gap-8 max-w-5xl">
       <hr className="bg-gray-200  h-[12px] border-0" />
 
-      <div className="flex justify-between rounded-xl border-2 border-gray-200 p-4 w-5xl cursor-pointer">
+      <div
+        className="flex justify-between rounded-xl border-2 border-gray-200 p-4 w-5xl cursor-pointer"
+        onClick={onClick}
+      >
         <h3 className="font-bold text-xl tracking-tighter">
           {title} ({itemCards.length})
         </h3>

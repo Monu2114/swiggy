@@ -1,7 +1,10 @@
 import { CDN_URL } from "../utils/constants";
 import { NonVegIcon, VegIcon } from "../svg/NonVeg";
+import { useContext } from "react";
+import { CartContext } from "../utils/cartContext";
 
 const DisplayItem = ({ item }) => {
+  const { cartItems, setCartItems } = useContext(CartContext);
   const item_info = item?.card?.info;
   const {
     name,
@@ -38,7 +41,14 @@ const DisplayItem = ({ item }) => {
         className="w-44 h-44 rounded-xl"
         alt={name}
       />
-      <button className="w-26 h-12 absolute bottom-2 right-8 bg-white text-green-500 rounded-xl p-2">
+      <button
+        className="w-26 h-12 absolute bottom-2 right-8 bg-white text-green-500 rounded-xl p-2"
+        onClick={() => {
+          if (!cartItems.includes(item)) {
+            setCartItems([...cartItems, item]);
+          }
+        }}
+      >
         ADD
       </button>
     </div>

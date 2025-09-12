@@ -9,6 +9,7 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   const status = useOnlineStatus();
   const [showIndex, setShowIndex] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
 
   const resInfo = useRestaurantMenu(resId);
   if (resInfo === null) {
@@ -28,6 +29,9 @@ const RestaurantMenu = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
+  const HandleCart = (item) => {
+    setCartItems([...cartItems, item]);
+  };
   const handleClick = (index) => {
     setShowIndex(showIndex === index ? null : index);
   };
