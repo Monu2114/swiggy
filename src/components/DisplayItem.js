@@ -1,10 +1,9 @@
 import { CDN_URL } from "../utils/constants";
 import { NonVegIcon, VegIcon } from "../svg/NonVeg";
-import { useContext } from "react";
-import { CartContext } from "../utils/cartContext";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cardSlice";
 
 const DisplayItem = ({ item }) => {
-  const { cartItems, setCartItems } = useContext(CartContext);
   const item_info = item?.card?.info;
   const {
     name,
@@ -16,6 +15,13 @@ const DisplayItem = ({ item }) => {
     description,
   } = item_info;
   const final_price = defaultPrice || price;
+
+  const dispatch = useDispatch();
+  const handleItem = () => {
+    // dispatch an action
+    dispatch(addItem(item));
+    console.log(item);
+  };
 
   return (
     <div className="flex justify-between w-full relative">
@@ -43,11 +49,7 @@ const DisplayItem = ({ item }) => {
       />
       <button
         className="w-26 h-12 absolute bottom-2 right-8 bg-white text-green-500 rounded-xl p-2"
-        onClick={() => {
-          if (!cartItems.includes(item)) {
-            setCartItems([...cartItems, item]);
-          }
-        }}
+        onClick={handleItem}
       >
         ADD
       </button>

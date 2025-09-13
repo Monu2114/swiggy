@@ -4,12 +4,16 @@ import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { Theme, userInfo } from "../utils/UserContext";
 import { CartContext } from "../utils/cartContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
   const { loggedInUser } = useContext(userInfo);
-  const { cartItems } = useContext(CartContext);
+  // const { cartItems } = useContext(CartContext);
   const status = useOnlineStatus();
+
+  //selector - subscribing to the store using the selector
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="bg-gradient-to-r from-purple-100 to-red-100 flex flex-col md:flex-row justify-evenly gap-12 md:gap-20 items-center">
@@ -33,7 +37,7 @@ const Header = () => {
             <li>Grocery</li>
           </Link>
           <Link to="/cart" className="link">
-            <li>Cart ({cartItems.length})</li>
+            <li>Cart {cartItems.length}</li>
           </Link>
           <li>{loggedInUser}</li>
           <button

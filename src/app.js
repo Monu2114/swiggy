@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
-import { userInfo } from "./utils/UserContext";
+// import { userInfo } from "./utils/UserContext";
 import { useState, useEffect } from "react";
-import { CartProvider } from "./utils/cartContext";
+// import { CartProvider } from "./utils/cartContext";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
@@ -12,6 +12,8 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/Restaurant-Menu";
 import Shimmer from "./components/Shimmer";
 import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -31,12 +33,12 @@ const AppLayout = () => {
     setUser(data.name);
   }, []);
   return (
-    <CartProvider>
+    <Provider store={appStore}>
       <Header />
       {/*  if "/" then body should be called and if about , about should be called */}
 
       <Outlet />
-    </CartProvider>
+    </Provider>
   );
 };
 
