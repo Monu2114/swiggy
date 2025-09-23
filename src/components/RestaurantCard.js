@@ -1,3 +1,4 @@
+import React from "react";
 import { CDN_URL } from "../utils/constants";
 export const RestaurantCard = ({ resData }) => {
   const { name, cuisines, avgRating, cloudinaryImageId } =

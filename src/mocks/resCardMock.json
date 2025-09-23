@@ -1,0 +1,93 @@
+{
+  "card": {
+    "card": {
+      "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+      "info": {
+        "id": "917128",
+        "name": "Lucky Biryani Point",
+        "city": "3",
+        "slugs": {
+          "restaurant": "lucky-biryani-point-banjara-hills-banjara-hills",
+          "city": "hyderabad"
+        },
+        "cloudinaryImageId": "FOOD_CATALOG/IMAGES/CMS/2024/3/6/be097fa2-fbd0-46df-8388-4987f5d80138_bf7c0820-f4bf-4d6e-b7ca-b45aeddcd0a1_compressed",
+        "address": "Shop No : 8-2-285/6/A/1 , Floor :  , VENKATESHWARA NAGAR BANJARA HILLS HYDERABAD , ",
+        "locality": "Venkat Nagar",
+        "areaName": "Banjara Hills",
+        "costForTwo": "30000",
+        "costForTwoMessage": "₹300 FOR TWO",
+        "cuisines": ["Biryani"],
+        "avgRating": 3.4,
+        "feeDetails": {},
+        "parentId": "295040",
+        "avgRatingString": "3.4",
+        "totalRatingsString": "68",
+        "sla": {
+          "deliveryTime": 35,
+          "minDeliveryTime": 35,
+          "maxDeliveryTime": 40,
+          "lastMileTravel": 3.6,
+          "serviceability": "SERVICEABLE",
+          "rainMode": "RAIN_MODE_NONE",
+          "slaString": "35-40 MINS",
+          "lastMileTravelString": "3.6 km",
+          "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+          "opened": true,
+          "restaurantClosedMeta": {}
+        },
+        "badges": {},
+        "aggregatedDiscountInfoV3": {
+          "header": "₹50 OFF",
+          "subHeader": "ABOVE ₹499",
+          "discountTag": "FLAT DEAL",
+          "logoCtx": {
+            "text": "BENEFITS"
+          }
+        },
+        "ratingSlab": "RATING_SLAB_4",
+        "orderabilityCommunication": {
+          "title": {},
+          "subTitle": {},
+          "message": {},
+          "customIcon": {},
+          "commsStyling": {}
+        },
+        "cartOrderabilityNudgeBanner": {
+          "parameters": {},
+          "presentation": {}
+        },
+        "externalRatings": {
+          "aggregatedRating": {
+            "rating": "--"
+          }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+        "featuredSectionInfo": {
+          "sectionTitle": "More"
+        }
+      },
+      "analytics": {
+        "screenName": "explore",
+        "context": "{\"tid\":\"undefined\",\"grid\":\"fe06049d-8496-4531-a339-bfc05f5a2be9\",\"queryUniqueId\":\"ac421295-86f9-a805-ae31-58b3296f32f8\",\"query\":\"biryani\"}",
+        "objectValue": "917128",
+        "impressionObjectName": "impression-restaurant",
+        "clickObjectName": "click-restaurant"
+      },
+      "ctaWithParams": {
+        "link": "swiggy://menu",
+        "type": "DEEPLINK",
+        "params": {
+          "sourceRequestId": "00000000000000000000000000000000",
+          "qrEnabled": "false",
+          "restaurant_id": "917128",
+          "query": "biryani",
+          "sourceSessionId": "n110b1fb-85e6-42af-9012-dd8a505df64f",
+          "source": "SEARCH",
+          "isSld": "false"
+        }
+      }
+    }
+  }
+}
