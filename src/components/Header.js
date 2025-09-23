@@ -1,9 +1,9 @@
 import { LOGO_URL } from "../utils/constants";
+import React from "react";
 import { useState, useContext } from "react";
 import { Link } from "react-router";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { Theme, userInfo } from "../utils/UserContext";
-import { CartContext } from "../utils/cartContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
