@@ -1,4 +1,4 @@
-import withPromotedLabel, { RestaurantCard } from "./RestaurantCard";
+import WithPromotedLabel, { RestaurantCard } from "./RestaurantCard";
 import useRestaurantData from "../utils/useRestaurantData";
 import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
@@ -13,7 +13,7 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]); // filtered list
   const [searchText, setSearchText] = useState("");
 
-  const RestauarantPromoted = withPromotedLabel(RestaurantCard);
+  const RestauarantPromoted = WithPromotedLabel(RestaurantCard);
   const { setUser } = useContext(userInfo);
 
   // Runs whenever allRestaurants changes

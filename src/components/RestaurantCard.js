@@ -3,6 +3,7 @@ import { CDN_URL } from "../utils/constants";
 export const RestaurantCard = ({ resData }) => {
   const { name, cuisines, avgRating, cloudinaryImageId } =
     resData?.card?.card?.info;
+  console.log(resData);
   return (
     <div className="flex flex-col p-4 w-full md:w-84 h-72 rounded-2xl shadow-md bg-white hover:shadow-lg transition">
       <img
@@ -22,7 +23,7 @@ export const RestaurantCard = ({ resData }) => {
 
 // input - Restaurant Card => output - PromotedRestroCard
 
-const withPromotedLabel = (RestaurantCard) => {
+const WithPromotedLabel = (RestaurantCard) => {
   return (props) => {
     return (
       <div>
@@ -35,4 +36,4 @@ const withPromotedLabel = (RestaurantCard) => {
   };
 };
 
-export default withPromotedLabel;
+export default WithPromotedLabel;

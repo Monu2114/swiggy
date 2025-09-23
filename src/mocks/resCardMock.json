@@ -3,50 +3,63 @@
     "card": {
       "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
       "info": {
-        "id": "917128",
-        "name": "Lucky Biryani Point",
+        "id": "805434",
+        "name": "Mehfil",
         "city": "3",
         "slugs": {
-          "restaurant": "lucky-biryani-point-banjara-hills-banjara-hills",
+          "restaurant": "mehfil-ameerpet-ameerpet",
           "city": "hyderabad"
         },
-        "cloudinaryImageId": "FOOD_CATALOG/IMAGES/CMS/2024/3/6/be097fa2-fbd0-46df-8388-4987f5d80138_bf7c0820-f4bf-4d6e-b7ca-b45aeddcd0a1_compressed",
-        "address": "Shop No : 8-2-285/6/A/1 , Floor :  , VENKATESHWARA NAGAR BANJARA HILLS HYDERABAD , ",
-        "locality": "Venkat Nagar",
-        "areaName": "Banjara Hills",
+        "cloudinaryImageId": "FOOD_CATALOG/IMAGES/CMS/2024/6/30/c783c7b2-bd22-4859-94f2-a0dcf97ffc2f_8423b0dd-1a3f-4e97-a7b1-7cd662a91d0e.jpeg",
+        "address": "7-1-282/C/1/4, Ground Floor, First Floor & Second Floor, BK Guda, Balkampet Main Road, Hyderabad, Hyderabad, Telangana-500038",
+        "locality": "Mahatma Gandhi Nagar",
+        "areaName": "Ameerpet",
         "costForTwo": "30000",
         "costForTwoMessage": "₹300 FOR TWO",
-        "cuisines": ["Biryani"],
-        "avgRating": 3.4,
+        "cuisines": ["Biryani", "Chinese", "Kebabs", "Tandoor"],
+        "avgRating": 4.2,
         "feeDetails": {},
-        "parentId": "295040",
-        "avgRatingString": "3.4",
-        "totalRatingsString": "68",
+        "parentId": "637",
+        "avgRatingString": "4.2",
+        "totalRatingsString": "45K+",
+        "promoted": true,
+        "adTrackingId": "cid=01eb5e69-a090-4c3e-a29d-b17954ebb8f4~p=0~adgrpid=01eb5e69-a090-4c3e-a29d-b17954ebb8f4#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=805434~plpr=SEARCH#RESTAURANT~st=biryani~eid=b7ad5c27-d612-4e2c-93ce-41640ab73832~srvts=1758616040083",
         "sla": {
-          "deliveryTime": 35,
-          "minDeliveryTime": 35,
-          "maxDeliveryTime": 40,
-          "lastMileTravel": 3.6,
+          "deliveryTime": 19,
+          "minDeliveryTime": 15,
+          "maxDeliveryTime": 20,
+          "lastMileTravel": 1.6,
           "serviceability": "SERVICEABLE",
           "rainMode": "RAIN_MODE_NONE",
-          "slaString": "35-40 MINS",
-          "lastMileTravelString": "3.6 km",
+          "slaString": "15-20 MINS",
+          "lastMileTravelString": "1.6 km",
           "iconType": "ICON_TYPE_EMPTY"
         },
         "availability": {
           "opened": true,
           "restaurantClosedMeta": {}
         },
-        "badges": {},
+        "badges": {
+          "imageBadges": [
+            {
+              "imageId": "android/static-assets/icons/big_rx.png",
+              "description": "bolt!"
+            },
+            {
+              "imageId": "Rxawards/_CATEGORY-Biryani.png",
+              "description": "Delivery!"
+            }
+          ]
+        },
         "aggregatedDiscountInfoV3": {
-          "header": "₹50 OFF",
-          "subHeader": "ABOVE ₹499",
+          "header": "₹100 OFF",
+          "subHeader": "ABOVE ₹399",
           "discountTag": "FLAT DEAL",
           "logoCtx": {
             "text": "BENEFITS"
           }
         },
-        "ratingSlab": "RATING_SLAB_4",
+        "ratingSlab": "RATING_SLAB_5",
         "orderabilityCommunication": {
           "title": {},
           "subTitle": {},
@@ -66,26 +79,27 @@
         "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
         "featuredSectionInfo": {
           "sectionTitle": "More"
-        }
+        },
+        "campaignId": "01eb5e69-a090-4c3e-a29d-b17954ebb8f4"
       },
       "analytics": {
         "screenName": "explore",
-        "context": "{\"tid\":\"undefined\",\"grid\":\"fe06049d-8496-4531-a339-bfc05f5a2be9\",\"queryUniqueId\":\"ac421295-86f9-a805-ae31-58b3296f32f8\",\"query\":\"biryani\"}",
-        "objectValue": "917128",
-        "impressionObjectName": "impression-restaurant",
-        "clickObjectName": "click-restaurant"
+        "context": "{\"tid\":\"undefined\",\"grid\":\"eb658fd8-6df0-437b-8f3a-c5b3d415b02e\",\"queryUniqueId\":\"ac421295-86f9-a805-ae31-58b3296f32f8\",\"query\":\"biryani\",\"adTrackingId\":\"cid=01eb5e69-a090-4c3e-a29d-b17954ebb8f4~p=0~adgrpid=01eb5e69-a090-4c3e-a29d-b17954ebb8f4#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=805434~plpr=SEARCH#RESTAURANT~st=biryani~eid=b7ad5c27-d612-4e2c-93ce-41640ab73832~srvts=1758616040083\"}",
+        "objectValue": "805434",
+        "impressionObjectName": "impression-restaurant-ad",
+        "clickObjectName": "click-restaurant-ad"
       },
       "ctaWithParams": {
         "link": "swiggy://menu",
         "type": "DEEPLINK",
         "params": {
-          "sourceRequestId": "00000000000000000000000000000000",
-          "qrEnabled": "false",
-          "restaurant_id": "917128",
           "query": "biryani",
-          "sourceSessionId": "n110b1fb-85e6-42af-9012-dd8a505df64f",
+          "sourceSessionId": "n114b651-f9e2-4c81-b9aa-16c94df92b3a",
           "source": "SEARCH",
-          "isSld": "false"
+          "isSld": "false",
+          "sourceRequestId": "68d259e7145238e1b4536b75bfcbad6a",
+          "qrEnabled": "false",
+          "restaurant_id": "805434"
         }
       }
     }
