@@ -3,9 +3,11 @@ import { CDN_URL } from "../utils/constants";
 export const RestaurantCard = ({ resData }) => {
   const { name, cuisines, avgRating, cloudinaryImageId } =
     resData?.card?.card?.info;
-  console.log(resData);
   return (
-    <div className="flex flex-col p-4 w-full md:w-84 h-72 rounded-2xl shadow-md bg-white hover:shadow-lg transition">
+    <div
+      data-testid="restaurant-card"
+      className="flex flex-col p-4 w-full md:w-84 h-72 rounded-2xl shadow-md bg-white hover:shadow-lg transition"
+    >
       <img
         className="w-full h-40 object-cover rounded-lg mb-3"
         src={`${CDN_URL}${cloudinaryImageId}`}

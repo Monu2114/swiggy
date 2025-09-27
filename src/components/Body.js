@@ -1,3 +1,4 @@
+import React from "react";
 import WithPromotedLabel, { RestaurantCard } from "./RestaurantCard";
 import useRestaurantData from "../utils/useRestaurantData";
 import { useState, useEffect, useContext } from "react";
@@ -27,10 +28,9 @@ const Body = () => {
 
   const status = useOnlineStatus();
 
-  if (status === false) {
-    return <h1>Offline</h1>;
+  if (!status || error) {
+    return <h1 className="text-3xl">{!status ? "Offline" : error}</h1>;
   }
-  if (error) return <h1 className="text-3xl">{error}</h1>;
 
   if (allRestaurants.length === 0) {
     console.log("⏳ allRestaurants is empty → showing Shimmer");
@@ -50,6 +50,7 @@ const Body = () => {
           <input
             className="border-2 w-84 border-gray-500 rounded-xl"
             value={searchText}
+            data-testid="searchInput"
             onChange={(e) => {
               const value = e.target.value;
               console.log("⌨️ Typing in search box:", value);
